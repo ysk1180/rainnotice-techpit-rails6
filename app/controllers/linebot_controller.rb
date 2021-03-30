@@ -84,9 +84,10 @@ class LinebotController < ApplicationController
         end
         message = {
           type: 'text',
-          text: push
+          text: [push]
         }
         res = client.reply_message(event['replyToken'], message)
+        Rails.logger.fatal res
         Rails.logger.fatal res.body
         # LINEお友達追された場合（機能②）
       when Line::Bot::Event::Follow
