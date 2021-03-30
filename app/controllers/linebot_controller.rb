@@ -87,7 +87,7 @@ class LinebotController < ApplicationController
           text: push
         }
         res = client.reply_message(event['replyToken'], message)
-        Rails.logger.fatal res
+        Rails.logger.fatal res.body
         # LINEお友達追された場合（機能②）
       when Line::Bot::Event::Follow
         # 登録したユーザーのidをユーザーテーブルに格納
